@@ -1,0 +1,21 @@
+Possible Implementation
+
+- event listener watches for click on start button
+  - draw full border around timer
+  - start counting down timer 
+  - each time timer counts down, update border
+  - each time timer counts down, update text
+  - if we counted down and timer reaches 0
+    - reset the border
+    - reset internal timer for another run
+
+**Or Isolate responsibility rather than chain through**
+
+- event listener watches for click on start button
+  - emit event stating timer has started. When it occurs draw border
+  - start counting down timer 
+  - emit event that the timer has ticked. When it occurs update the border
+  - each time timer counts down, update text
+  - if we counted down and timer reaches 0
+    - emit event that the timer is done. when it occurs reset the border
+    - reset internal timer for another run
