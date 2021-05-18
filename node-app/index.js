@@ -12,10 +12,9 @@ const { lstat } = fs.promises;
 
 const targetDir = process.argv[2] || process.cwd();
 
-fs.readdir(process.cwd(), async (err, filenames) => {
+fs.readdir(targetDir, async (err, filenames) => {
   if (err) {
     console.log(err);
-    return;
   }
 
   const statPromises = filenames.map((filename) => {
